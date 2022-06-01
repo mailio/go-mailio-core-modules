@@ -25,4 +25,8 @@ var (
 	ErrTrialExpired = errors.New("trial has expired")
 	// ErrRateLimitExceeded - rate limit exceeded
 	ErrRateLimitExceeded = errors.New("rate limit exceeded")
+	// ErrInvalidPublicKey - invalid public key
+	ErrInvalidPublicKey = errors.New("invalid public key")
+	// ErrInvalidSignature - invalid signature
+	ErrSignatureInvalid = errors.New("signature invalid")
 )

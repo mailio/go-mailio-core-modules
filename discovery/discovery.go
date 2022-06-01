@@ -15,8 +15,8 @@ type Discoverer interface {
 type Discovery struct {
 	// The domain name to query.
 	Domain string `json:"domain"`
-	// Ip of the requested domain
-	Ip string `json:"ip"`
+	// Ipsv4 addresses of the requested domain
+	Ips []string `json:"ips"`
 	// Flag telling if server  at domain supports mailio protocol
 	IsMailio bool `json:"isMailio"`
 	// Mailio base64 public key (if Mailio flag is true)

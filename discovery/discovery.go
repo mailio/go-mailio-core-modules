@@ -17,10 +17,10 @@ type Discovery struct {
 	Domain string `json:"domain"`
 	// Ip of the requested domain
 	Ip string `json:"ip"`
-	// Flag is server is mailio server
-	Mailio bool `json:"mailio"`
+	// Flag telling if server  at domain supports mailio protocol
+	IsMailio bool `json:"isMailio"`
 	// Mailio base64 public key (if Mailio flag is true)
-	MailioPublicKey string `json:"mailioPublicKey,omitempty"`
-	// List of domains mailio server is authoritative for
-	MailioDomainList string `json:"mailioDomainList,omitempty"`
+	PublicKey string `json:"publicKey,omitempty"`
+	// The type of the public key (ed25519 support only at the moment)
+	PublicKeyType string `json:"publicKeyType,omitempty"`
 }

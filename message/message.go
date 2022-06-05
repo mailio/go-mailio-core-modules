@@ -1,5 +1,9 @@
 package message
 
+import (
+	"io"
+)
+
 type ContentType string
 
 const (
@@ -22,4 +26,8 @@ type Message struct {
 	AttachmentRefs  []AttachmentRef `json:"attachmentRef,omitempty"`                              // message attachment references (pointers to files on a file system)
 	Created         int64           `json:"created" validate:"required"`                          // message creation timestamp (unix epoch miliseconds)
 	Modified        int64           `json:"modified,omitempty"`                                   // message modification timestamp (unix epoch miliseconds)
+}
+
+type MessageParser interface {
+	Parse(reader io.Reader) (*Message, error)
 }

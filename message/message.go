@@ -7,12 +7,12 @@ import (
 type ContentType string
 
 const (
-	MailioV1 ContentType = "mailio/v1"
+	MailioV1 ContentType = "mailio/proto/v1"
 	Mime     ContentType = "mime"
 )
 
 // Basic email message structure
-type Message struct {
+type Envelope struct {
 	ID              string          `json:"id" validate:"required"`                               // message id
 	SenderAddress   string          `json:"senderAddress,omitempty" validate:"len=42"`            // mailio sender address
 	ReceiverAddress string          `json:"receiverAddress,omitempty" validate:"len=42"`          // mailio receiver address
@@ -29,5 +29,5 @@ type Message struct {
 }
 
 type MessageParser interface {
-	Parse(reader io.Reader) (*Message, error)
+	Parse(reader io.Reader) (*Envelope, error)
 }

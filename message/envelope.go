@@ -45,31 +45,7 @@ type ContentRef struct {
 }
 
 // mailio message parser
-type MessageParser interface {
-	Parse(reader io.Reader) (*Envelope, error)
-}
-
-// mailio message composer where Set functions are required, while Add functions operate on optional fields
-type MessageComposer interface {
-	// optional fields
-	AddID(string)
-	AddSenderPublicKey(string)
-	AddReceiverPublicKey(string)
-	AddParentMessageID(string)
-	AddRead(bool)
-	AddFolder(string)
-	AddOwnersHexAddress(string)
-	AddSignature(string)
-	AddAttachments([]ContentRef)
-	AddModified(int64)
-	AddSealedAesKey(string)
-
-	// required fields
-	SetContentType(ContentType)
-	SetBody(content []byte, contentType string)
-	SetMessageID(string)
-	SetCreated(int64)
-
-	// pretty print of an object
-	ToString()
+type EnvelopeMime interface {
+	// in case content is of type MIME
+	ParseMime(reader io.Reader) (*MailioMime, error)
 }

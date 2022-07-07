@@ -1,4 +1,4 @@
-package api
+package mailbox
 
 type Folder struct {
 	ID             string `json:"id"`                       // id of the folder

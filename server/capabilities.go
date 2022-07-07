@@ -1,4 +1,4 @@
-package api
+package server
 
 const (
 	// Possible protocols
